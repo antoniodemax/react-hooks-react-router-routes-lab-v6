@@ -2,13 +2,11 @@ import { useEffect, useState } from "react";
 import MovieCard from "../components/MovieCard";
 import NavBar from "../components/NavBar"
 
-
-const BaseUrl='http://localhost:4000/movies'
 function Home() {
 const [movies, setMovies] = useState([])
 
 useEffect(() =>{
-  fetch(BaseUrl)
+  fetch("http://localhost:3000/movies")
   .then(r => r.json())
   .then(data => setMovies(data))
   .catch(error => console.error(error))

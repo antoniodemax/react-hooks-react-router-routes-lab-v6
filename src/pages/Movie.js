@@ -3,15 +3,13 @@ import { useParams } from "react-router-dom"
 import NavBar from "../components/NavBar";
 
 
-const BaseUrl='http://localhost:4000/movies'
-
 function Movie() {
   const [movie, setMovie] = useState({})
   const params = useParams();
   const movieId = params.id
 
   useEffect(() =>{
-    fetch(`${BaseUrl}/${movieId}`)
+    fetch(`http://localhost:3000/movies/${movieId}`)
     .then(r => r.json())
     .then(data => setMovie(data))
     .catch(error => console.error(error))
